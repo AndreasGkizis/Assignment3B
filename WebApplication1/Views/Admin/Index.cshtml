@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebApplication1.Models.Candidate>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="d-flex p-2 bd-highlight text-center">
+    @ViewBag.Message
+</div>
+
+<table class="table table-hover table-striped table-bordered m-auto">
+    <thead class="thead-dark">
+        <tr class="text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr class="text-center">
+            <td>
+                @Html.DisplayFor(modelItem => item.CandidateNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Admin", new { id = item.Id }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Details", "Details", "Admin", new { id = item.Id }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Certificates", "Certificates", "Admin", new { id = item.Id }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Delete", "Admin", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+
+    }
+
+</table>
+
+<div class="text-center my-2">
+    @Html.ActionLink("Create New Candidate", "Create", "Admin", new { @class = "btn btn-success btn-lg btn-block" })
+</div>
+

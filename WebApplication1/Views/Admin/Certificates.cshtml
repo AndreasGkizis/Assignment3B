@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebApplication1.Models.Examination>
+
+@{
+    ViewBag.Title = "Certificates";
+}
+
+<h2>Certificates for Candidate </h2>
+
+<table class="table table-hover table-striped table-bordered m-auto">
+    <tr>
+        <th>
+            Certificate Title
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssessmentCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExaminationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScoreReportDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateScore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PercentageScore)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="text-center">
+        <td>
+            @Html.DisplayFor(modelItem => item.Certificate_Id.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssessmentCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExaminationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScoreReportDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateScore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PercentageScore)%
+        </td>
+    </tr>
+}
+
+</table>
