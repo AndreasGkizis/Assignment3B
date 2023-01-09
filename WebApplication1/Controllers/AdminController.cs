@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Candidate candidate = db.Candidates.Find(id);
+            Candidate candidate = candidateRepository.Get(id);
             if (candidate == null)
             {
                 return HttpNotFound();

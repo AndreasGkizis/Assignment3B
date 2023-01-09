@@ -1,0 +1,24 @@
+﻿@model WebApplication1.Models.Candidate
+
+
+@using (Html.BeginForm("List", "Candidate"))
+{
+    @Html.Hidden("IsAdmin", false)
+<div class="card-header">
+    <h4>
+        Please enter your Candidate ID to view your certificates
+    </h4>
+</div>
+    
+    <div class="card-body">
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "col-sm-1 col-form-label" })
+            @Html.TextBoxFor(model => model.Id, new { @class = "form-control col-sm-10" })
+    </div>
+
+    </div>
+    <div class="form-group text-center">
+        <input type="submit" value="Search" class="btn btn-outline-success btn-lg btn-block" />
+    </div>
+
+}

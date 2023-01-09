@@ -20,10 +20,11 @@ namespace WebApplication1.Data.Repositories.Implementations
         public Candidate Add(Candidate candidate)
         {
             var db = _dbContext as AppContextDikoMou;
-            if (candidate.Id == 0 )
+            if (candidate.Id == 0)
             {
-            db.Candidates.Add(candidate);
-            }else
+                db.Candidates.Add(candidate);
+            }
+            else
             {
                 db.Candidates.AddOrUpdate(candidate);
             }
@@ -46,7 +47,7 @@ namespace WebApplication1.Data.Repositories.Implementations
         // Summary:
         //    Returns all candidates by ID
         //
-        
+
         public IEnumerable<Candidate> GetAll()
         {
             var db = _dbContext as AppContextDikoMou;
@@ -61,6 +62,21 @@ namespace WebApplication1.Data.Repositories.Implementations
         public Candidate Update(int id, Candidate entity)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Examination> GetCerts(int? id, bool isAdmin)
+        {
+            var db = _dbContext as AppContextDikoMou;
+            if (isAdmin == true)
+            {
+                var results = db.Examinations.Where(x => x.Candidate_Id.Id == id).Include(x => x.Candidate_Id).Include(y => y.Certificate_Id).ToList();
+                return results;
+            }
+            else
+            {
+                var results = db.Examinations.Where(x => x.Candidate_Id.Id == id && x.Passed == true).Include(x => x.Candidate_Id).Include(y => y.Certificate_Id).ToList();
+                return results;
+            }
         }
     }
 }

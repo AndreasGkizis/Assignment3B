@@ -56,7 +56,6 @@ namespace WebApplication1.Models
 
 
         [DisplayName("Town of Residence")]
-
         public string TownOfResidence { get; set; }
         [DisplayName("City of Residence")]
 

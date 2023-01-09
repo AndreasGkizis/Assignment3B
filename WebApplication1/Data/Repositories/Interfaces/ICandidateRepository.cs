@@ -9,5 +9,8 @@ namespace WebApplication1.Data.Repositories.Interfaces
     internal interface ICandidateRepository
     {
         Candidate Add(Candidate candidate);
+        List<Examination> GetCerts(int? id, bool isAdmin);
+
+
     }
 }
