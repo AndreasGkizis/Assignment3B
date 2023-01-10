@@ -20,13 +20,9 @@ namespace WebApplication1.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // 1 examination exei FK apo to candidate 
-            /*
-             *  modelBuilder.Entity<Student>()
-            .HasOptional<Standard>(s => s.Standard)
-            .WithMany()
-            .WillCascadeOnDelete(false);
-             */
+            Database.SetInitializer<AppContextDikoMou>(new MyDBInitializer());
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Examination>().HasRequired(s => s.Candidate_Id).WithMany().WillCascadeOnDelete(true);
             modelBuilder.Entity<ExaminationTopic_Results>().HasRequired(s => s.Examination).WithMany().WillCascadeOnDelete(true);
         }

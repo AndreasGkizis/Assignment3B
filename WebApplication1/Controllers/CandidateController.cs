@@ -9,6 +9,7 @@ using WebApplication1.Data.Repositories.Implementations;
 using WebApplication1.Models;
 using IronPdf;
 using System.IO;
+using System.Net.Mime;
 
 namespace WebApplication1.Controllers
 {
@@ -16,42 +17,38 @@ namespace WebApplication1.Controllers
     {
         private AppContextDikoMou db = new AppContextDikoMou();
         private IGenericRepository<Candidate> candidateRepository;
+        private IGenericRepository<Examination> examRepository;
         public CandidateController()
         {
             candidateRepository = new CandidateRepository(db);
+            examRepository = new ExaminationRepository(db);
         }
-        // GET: Candidate
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult List([Bind(Include = "Id")] Candidate candidate,bool isAdmin)
+        public ActionResult List([Bind(Include = "Id")] Candidate candidate, bool isAdmin)
         {
             var certs = (candidateRepository as CandidateRepository).GetCerts(candidate.Id, isAdmin);
             return View(certs);
         }
-
-        public ActionResult Print (int? id)
+        public ActionResult Print(int? id)
         {
-            var filename = "MyExportedpdf";
+            var filename = "MyExportedpdf.pdf";
             var baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            var folderPath = Path.Combine(baseDir, "StaticFiles");
-            Environment.SetEnvironmentVariable("TEMP", baseDir);
-            Installation.TempFolderPath= folderPath;
-            // create a new PDF renderer
+            var exam = examRepository.Get(id);
+            
             var renderer = new HtmlToPdf();
+            string  Html = $"<h1>Congratulations {exam.Candidate_Id.FirstName} {exam.Candidate_Id.LastName} for getting the Certificate with title :{exam.Certificate_Id.Name}</h1>";
+                    Html += $"You score was {exam.PercentageScore}% !";
+            var pdf = renderer.RenderHtmlAsPdf(Html);
 
-            // render the HTML to a PDF document
-            var pdf = renderer.RenderHtmlAsPdf("<h1>Hello World!</h1>");
- 
-                pdf.SaveAs(filename);
-            var fileContents = System.IO.File.ReadAllBytes(folderPath + filename);
+            pdf.SaveAs(baseDir + filename);
+            var fileContents = System.IO.File.ReadAllBytes(baseDir + filename);
 
-            // save the PDF to a memory stream
-
-            // return the PDF as a file
-            return File(fileContents, "application/pdf", filename);
+            var result = File(fileContents, "application/pdf", filename);
+            return result;
         }
 
 

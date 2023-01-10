@@ -7,7 +7,16 @@ namespace WebApplication1.Data
 {
         public class MyDBInitializer : CreateDatabaseIfNotExists<AppContextDikoMou>
         {
-            protected override void Seed(AppContextDikoMou context)
+        public void InitializeDatabase(AppContextDikoMou context)
+        {
+            if (!context.Database.Exists())
+            {
+                context.Database.Create();
+                Seed(context);
+                context.SaveChanges();
+            }
+        }
+        protected override void Seed(AppContextDikoMou context)
             {
             // used only to make the results of each exam random
             var _random = new Random();

@@ -47,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.PercentageScore)%
             </td>
             <td>
-                @Html.ActionLink("Print", "Print", "Candidate", new { id = item.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Print", "Print", "Candidate", new { id = item.Id }, new { @class = "btn btn-success", @target="_blank" })
 
             </td>
         </tr>

@@ -25,7 +25,6 @@ namespace WebApplication1
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Scripts/bootstrap/css/bootstrap.css",
                       "~/Content/site.css"));
-            // quest giati oxi to content??
 
         }
     }

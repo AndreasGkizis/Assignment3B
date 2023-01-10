@@ -271,9 +271,9 @@
     <Compile Include="Controllers\CertificateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\AppContextDikoMou.cs" />
-    <Compile Include="Data\DBChecker.cs" />
     <Compile Include="Data\MyDBInitializer.cs" />
     <Compile Include="Data\Repositories\Implementations\CandidateRepository.cs" />
+    <Compile Include="Data\Repositories\Implementations\ExaminationRepository.cs" />
     <Compile Include="Data\Repositories\Interfaces\ICandidateRepository.cs" />
     <Compile Include="Data\Repositories\Interfaces\IGenericRepository.cs" />
     <Compile Include="Global.asax.cs">
