@@ -82,7 +82,10 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CandidateNumber,FirstName,MiddleName,LastName,Gender,NativeLanguage,DateOfBirth,Email,LandlineNumber,MobileNumber,Address1,Address2,CountryOfResidence,StateOfResidence,TerritoryOfResidence,ProvinceOfResidence,TownOfResidence,CityOfResidence,PostalCode,PhotoIdType,PhotoNumber,PhotoIdIssueDate")] Candidate candidate)
+        public ActionResult Edit([Bind(Include = "Id,CandidateNumber,FirstName,MiddleName,LastName,Gender," +
+            "NativeLanguage,DateOfBirth,Email,LandlineNumber,MobileNumber,Address1,Address2,CountryOfResidence," +
+            "StateOfResidence,TerritoryOfResidence,ProvinceOfResidence,TownOfResidence,CityOfResidence,PostalCode," +
+            "PhotoIdType,PhotoNumber,PhotoIdIssueDate")] Candidate candidate)
         {
             if (ModelState.IsValid)
             {
