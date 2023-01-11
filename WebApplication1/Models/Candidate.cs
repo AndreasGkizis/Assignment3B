@@ -64,7 +64,7 @@ namespace WebApplication1.Models
 
         public string PostalCode { get; set; }
         [DisplayName("Identification Type")]
-
+        [IdTypeNotDefault(typeof(IdTypes) ,0)]
         public IdTypes PhotoIdType { get; set; }
         [DisplayName("Identification Number")]
 

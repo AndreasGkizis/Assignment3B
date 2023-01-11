@@ -276,6 +276,7 @@
     <Compile Include="Data\Repositories\Implementations\ExaminationRepository.cs" />
     <Compile Include="Data\Repositories\Interfaces\ICandidateRepository.cs" />
     <Compile Include="Data\Repositories\Interfaces\IGenericRepository.cs" />
+    <Compile Include="Data\Validations\IdTypeValidation.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
