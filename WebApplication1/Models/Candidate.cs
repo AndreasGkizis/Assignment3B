@@ -51,12 +51,12 @@ namespace WebApplication1.Models
 
         public string TerritoryOfResidence { get; set; }
         [DisplayName("Province of Residence")]
-
-        public string ProvinceOfResidence { get; set; }
+                public string ProvinceOfResidence { get; set; }
 
 
         [DisplayName("Town of Residence")]
         public string TownOfResidence { get; set; }
+
         [DisplayName("City of Residence")]
 
         public string CityOfResidence { get; set; }
