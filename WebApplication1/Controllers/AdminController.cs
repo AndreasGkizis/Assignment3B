@@ -29,11 +29,6 @@ namespace WebApplication1.Controllers
             ViewBag.Message = message;
             return View(candidateRepository.GetAll());
         }
-        public ActionResult Akuro(string message)
-        {
-            ViewBag.Message = message;
-            return View(candidateRepository.GetAll());
-        }
 
         public ActionResult Details(int? id)
         {
