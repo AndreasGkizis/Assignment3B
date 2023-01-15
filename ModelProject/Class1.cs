@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebApplication1.Models
+namespace ModelProject
 {
-    public enum IdTypes
+    public class Class1
     {
-        NO_VALUE,
-        NATIONAL_ID,
-        PASSPORT
     }
 }

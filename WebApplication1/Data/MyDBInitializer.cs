@@ -1,4 +1,4 @@
-﻿using WebApplication1.Models;
+﻿using ModelProject.Models;
 using System;
 using System.Data.Entity;
 using System.Linq;

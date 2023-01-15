@@ -10,7 +10,7 @@ using System.Xml.Linq;
 using WebApplication1.Data;
 using WebApplication1.Data.Repositories;
 using WebApplication1.Data.Repositories.Implementations;
-using WebApplication1.Models;
+using ModelProject.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -25,6 +25,11 @@ namespace WebApplication1.Controllers
         }
 
         public ActionResult Index(string message)
+        {
+            ViewBag.Message = message;
+            return View(candidateRepository.GetAll());
+        }
+        public ActionResult Akuro(string message)
         {
             ViewBag.Message = message;
             return View(candidateRepository.GetAll());

@@ -6,7 +6,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Data;
-using WebApplication1.Models;
+using ModelProject.Models;
 
 namespace WebApplication1.Controllers
 {

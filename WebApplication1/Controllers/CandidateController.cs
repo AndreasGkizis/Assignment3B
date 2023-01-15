@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using WebApplication1.Data;
 using WebApplication1.Data.Repositories;
 using WebApplication1.Data.Repositories.Implementations;
-using WebApplication1.Models;
+using ModelProject.Models;
 using IronPdf;
 using System.IO;
 using System.Net.Mime;

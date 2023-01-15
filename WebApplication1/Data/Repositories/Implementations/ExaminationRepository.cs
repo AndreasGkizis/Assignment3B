@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using WebApplication1.Data.Repositories.Interfaces;
-using WebApplication1.Models;
+using ModelProject.Models;
 
 namespace WebApplication1.Data.Repositories.Implementations
 {

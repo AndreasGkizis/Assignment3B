@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebApplication1.Models
+namespace ModelProject.Models
 {
     public class Certificate_Topics
     {
